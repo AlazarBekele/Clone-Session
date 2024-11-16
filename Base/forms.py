@@ -3,7 +3,7 @@ from .models import (
   JobDepartement,
   Apply
 )
-class InputForm (forms.modelForm):
+class InputForm (forms.ModelForm):
   class Meta:
 
     model = Apply
