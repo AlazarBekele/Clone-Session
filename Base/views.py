@@ -23,4 +23,7 @@ def index (request):
 
 def login_check (request):
 
-  froms = loginForm
+  froms = loginForm(request.POST or None)
+  if request.method == 'POST':
+    if froms.is_valid():
+      
