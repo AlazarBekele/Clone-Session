@@ -19,6 +19,9 @@ class InputForm (forms.ModelForm):
       'dob' : forms.DateInput(attrs={
         'class' : 'form-control',
         'type' : 'Date'
+      }),
+      'detail_about' : forms.Textarea(attrs={
+        'class' : 'lead'
       })
     }
 

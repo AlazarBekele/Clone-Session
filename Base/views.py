@@ -9,10 +9,7 @@ from .models import (
 )
 # Create your views here.
 
-@login_required
 def index (request):
-
-  apply = Apply.objects.all()
 
   form = InputForm(request.POST or None)
 
@@ -20,15 +17,18 @@ def index (request):
     if form.is_valid():
       form.save()
       messages.success(request, 'Sucssfully Added!!')
-
       form = InputForm()
+
+  apply = Apply.objects.all()
 
   context = {
     'apply' : apply,
-    'form' : form
+    'forms' : form
   }
 
-  return render (request, 'index.html', context=context)
+  return render (request, 'index.html', context)
+
+
 
 
 def login_check (request):
