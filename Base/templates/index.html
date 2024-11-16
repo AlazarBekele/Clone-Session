@@ -19,6 +19,18 @@
         <div>
           <button type="button" class="btn btn-primary float-end m-5 float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</button>
         </div>
+        
+        <div>
+
+          {% for message in messages %}
+
+          <div class="alert alert-primary" role="alert">
+            {{message}}
+          </div>
+
+          {% endfor %}
+
+        </div>
 
         {% for applys in apply %}
 
@@ -30,7 +42,7 @@
 
             <p class="card-text">{{applys.detail_about}}</p>
             <h5 class="card-title">{{applys.job_departement}}</h5>
-            <a href="#" class="btn btn-primary">Edit</a>
+            <a href="{{ url '#' }}" class="btn btn-primary">Edit</a>
 
           </div>
 
@@ -54,7 +66,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              
+
               <form method="post">
 
                 {% csrf_token %}

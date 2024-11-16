@@ -1,7 +1,7 @@
 from django import forms
 from .models import (
   JobDepartement,
-  Apply
+  Apply,
 )
 class InputForm (forms.ModelForm):
   class Meta:
@@ -21,3 +21,12 @@ class InputForm (forms.ModelForm):
         'type' : 'Date'
       })
     }
+
+class login_Input(forms.Form):
+  username = forms.CharField (widget=forms.TextInput(attrs={
+    'class' : 'form-control',
+    'placeholder' : 'Enter Email'
+  })),
+  password = forms.CharField (widget=forms.PasswordInput(attrs={
+    'class' : 'form-control'
+  }))
