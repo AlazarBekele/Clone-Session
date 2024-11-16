@@ -1,11 +1,13 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_Input
+from .forms import InputForm, loginForm
 from .models import (
   JobDepartement,
   Apply
 )
-from .forms import InputForm
 # Create your views here.
 
+@login_Input(login_url='')
 def index (request):
 
   apply = Apply.objects.all()
@@ -18,3 +20,7 @@ def index (request):
   }
 
   return render (request, 'index.html', context=context)
+
+def login_check (request):
+
+  froms = loginForm

@@ -1,7 +1,7 @@
 from django import forms
 from .models import (
   JobDepartement,
-  Apply
+  Apply,
 )
 class InputForm (forms.ModelForm):
   class Meta:
@@ -21,3 +21,5 @@ class InputForm (forms.ModelForm):
         'type' : 'Date'
       })
     }
+
+class loginForm
