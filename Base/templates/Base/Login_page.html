@@ -26,6 +26,14 @@
       </div>
 
       <form method="post">
+        
+        {% for formin in messages %}
+
+        <div class="alert alert-danger" role="alert">
+          {{formin}}
+        </div>
+
+        {% endfor %}
 
         {% csrf_token %}
         {{ form.as_p }}

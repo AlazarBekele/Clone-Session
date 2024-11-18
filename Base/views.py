@@ -39,12 +39,16 @@ def login_check (request):
 
       username = form.cleaned_data.get('username')
       password = form.cleaned_data.get('password')
-      form = login_Input()
+      
 
       user = authenticate(request, username=username, password=password)
       
-      if user is not None:
+      if user is None:
+        messages.success (request, 'Compleate Your Task!!')
+
+      elif user is not None:
         login(request, user)
+        messages.success (request, 'The user is Correct!!')
         return redirect ('index')        
       
   context = {
