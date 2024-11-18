@@ -28,8 +28,10 @@ class InputForm (forms.ModelForm):
 class login_Input(forms.Form):
   username = forms.CharField (widget=forms.TextInput(attrs={
     'class' : 'form-control',
-    'placeholder' : 'Enter Email'
+    'placeholder' : 'Enter Email',
+    'type' : 'email'
   })),
   password = forms.CharField (widget=forms.PasswordInput(attrs={
-    'class' : 'form-control'
+    'class' : 'form-control',
+    'type' : 'password'
   }))

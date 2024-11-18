@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
-from .forms import InputForm
+from .forms import InputForm, login_Input
 from django.contrib import messages
 from .models import (
   JobDepartement,
@@ -33,7 +33,7 @@ def index (request):
 
 def login_check (request):
   
-  form = InputForm(request.POST or None)
+  form = login_Input(request.POST or None)
   if request.method == 'POST':
     if form.is_valid():
 
