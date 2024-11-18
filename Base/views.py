@@ -45,3 +45,9 @@ def login_check (request):
       if user is not None:
         login(request, user)
         return redirect ('index')
+      
+  context = {
+    'from' : form
+  }
+
+  return render (request, 'Login_page.html', context=context)
