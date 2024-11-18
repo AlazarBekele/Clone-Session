@@ -12,12 +12,18 @@
 </head>
 <body> 
 
+  <div class="col-md-5">
+
     <form method="post">
 
       {% csrf_token %}
       {{form.as_p}}
 
+    <button type="submit" class="btn btn-primary float-end">Add</button>
+
     </form>
+
+  </div>
 
 </body>
 </html>
