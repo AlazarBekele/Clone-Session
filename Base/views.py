@@ -39,15 +39,16 @@ def login_check (request):
 
       username = form.cleaned_data.get('username')
       password = form.cleaned_data.get('password')
+      form = login_Input()
 
       user = authenticate(request, username=username, password=password)
       
       if user is not None:
         login(request, user)
-        return redirect ('index')
+        return redirect ('index')        
       
   context = {
-    'form' : form
+    'form' : form,
   }
 
   return render (request, 'Base/Login_page.html', context)
