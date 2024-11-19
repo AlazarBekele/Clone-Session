@@ -9,5 +9,5 @@ from .views import (
 urlpatterns = [
     path ('', index, name='index'),
     path ('login/', login_check, name='login'),
-    path ('detail/<int:id>/', detail_page, name='detail_page')
+    path ('detail/<str:id>/', detail_page, name='detail_page')
 ]

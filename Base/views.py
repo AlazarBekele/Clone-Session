@@ -30,10 +30,10 @@ def index (request):
   return render (request, 'index.html', context)
 
 
-def detail_page (request, detail_id):
+def detail_page (request, id):
 
   try:
-    apply = Apply.objects.get(pk=detail_id)
+    apply = Apply.objects.get(id=id)
   except:
     return HttpResponse ('Bad Request!!')
   
