@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
+
+  <link rel="shortcut icon" type="x-icon" href="https://img.icons8.com/?size=100&id=91234&format=png&color=000000">
   
   <link rel="stylesheet" href="{% static 'General.css' %}">
 
@@ -45,7 +47,7 @@
 
             <p class="card-text">{{applys.detail_about}}</p>
             <h5 class="card-title">{{applys.job_departement}}</h5>
-            <a href="#" class="btn btn-primary">Edit</a>
+            <a href="{% url 'detail_page' apply.id %}" class="btn btn-primary">Edit</a>
 
           </div>
 

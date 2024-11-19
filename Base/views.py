@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from .forms import InputForm, login_Input
+from django.http import HttpResponse
 from django.contrib import messages
 from .models import (
   JobDepartement,
@@ -29,6 +30,28 @@ def index (request):
   return render (request, 'index.html', context)
 
 
+def detail_page (request, detail_id):
+
+  try:
+    apply = Apply.objects.get(pk=detail_id)
+  except:
+    return HttpResponse ('Bad Request!!')
+  
+  form = InputForm (request.POST or None, instance=apply)
+
+  if request.method == 'POST':
+    if form.is_valid():
+      form.save()
+      messages.success (request, 'Succssfully Updateed!!')
+
+      return redirect ('index')
+    
+    context = {
+      'form' :form,
+      'apply' : apply
+    }
+
+  return render (request, 'Base/detail_page.html', context=context)
 
 
 def login_check (request):
