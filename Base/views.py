@@ -29,15 +29,15 @@ def index (request):
 
   return render (request, 'index.html', context)
 
-
+@login_required (login_url='/login/')
 def detail_page (request, id):
 
   try:
-    apply = Apply.objects.get(id=id)
+    apply = Apply.objects.get(pk=id)
   except:
     return HttpResponse ('Bad Request!!')
   
-  form = InputForm (request.POST or None, instance=apply)
+  form = InputForm(request.POST or None, instance=apply)
 
   if request.method == 'POST':
     if form.is_valid():
@@ -46,10 +46,10 @@ def detail_page (request, id):
 
       return redirect ('index')
     
-    context = {
+  context = {
       'form' :form,
       'apply' : apply
-    }
+  }
 
   return render (request, 'Base/detail_page.html', context=context)
 
