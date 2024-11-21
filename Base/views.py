@@ -54,6 +54,17 @@ def detail_page (request, id):
   return render (request, 'Base/detail_page.html', context=context)
 
 
+def detail_delete (request, det_id):
+  try:
+    apply = Apply.objects.get(pk=det_id)
+  except:
+    return HttpResponse ('Bad Request!!')
+  
+  apply.delete()
+  messages.success(request, 'Successfully Deleted!!')
+  return redirect ('index')
+
+
 def login_check (request):
   
   form = login_Input(request.POST or None)
